@@ -1,5 +1,5 @@
 {
-  "name": "require",
+  "name": "jquery-require",
   "version": "1.0.0",
   "description": "jQuery require plugin. Compatible to nodejs and requirejs",
   "main": "jquery.require.js",
@@ -10,6 +10,10 @@
     "jquery-plugin",
     "ecosystem:jquery"
   ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ar-comlog/jquery-require.git"
+  },
   "author": "COMLOG GmbH",
   "license": "ISC"
 }
