@@ -1,0 +1,15 @@
+{
+  "name": "require",
+  "version": "1.0.0",
+  "description": "jQuery require plugin. Compatible to nodejs and requirejs",
+  "main": "jquery.require.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "author": "COMLOG GmbH",
+  "license": "ISC"
+}
