@@ -1,6 +1,6 @@
 {
   "name": "jquery-require",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jQuery require plugin. Compatible to nodejs and requirejs",
   "main": "jquery.require.js",
   "scripts": {
@@ -8,7 +8,9 @@
   },
   "keywords": [
     "jquery-plugin",
-    "ecosystem:jquery"
+    "ecosystem:jquery",
+    "require",
+    "jquery"
   ],
   "repository": {
     "type" : "git",
