@@ -2,7 +2,7 @@
 	var modules = {};
 
 	/**
-	 * @param {Object|string} src kann mit Rückgabe-Variablennamen erweitert werden (z.B. exports: 'io')
+	 * @param {Object|URL} src kann mit Rückgabe-Variablennamen erweitert werden (z.B. exports: 'io')
 	 * @param {function} cb
 	 * @return {jqXHR}
 	 */
@@ -25,7 +25,6 @@
 			data += "\n//# sourceURL="+src.url;
 
 			modules[src.url].module = {exports: null};
-
 			(function() {
 				var module = { exports: null };
 				var exports = null;
@@ -33,12 +32,13 @@
 					var res = eval(data);
 					if (!module.exports) module.exports = exports || res;
 					modules[src.url].module = module;
-					cb(modules[src.url].module.exports, data, textStatus, jqXHR);
 				} catch (errorThrown) {
 					modules[src.url].textStatus = 'error';
 					modules[src.url].error = errorThrown;
-					cb(null, modules[src.url]);
+					return cb(null, modules[src.url]);
 				}
+
+				cb(modules[src.url].module.exports, data, textStatus, jqXHR);
 			})();
 		};
 
@@ -60,7 +60,7 @@
 			if (modules[src.url].module)
 				cb(modules[src.url].module.exports);
 			else
-				modules[src.url].done(done());
+				modules[src.url].done(done);
 		}
 
 		var opt = $.extend({
