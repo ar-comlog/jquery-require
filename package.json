@@ -1,6 +1,6 @@
 {
   "name": "jquery-require",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "jQuery require plugin. Compatible to nodejs and requirejs",
   "main": "jquery.require.js",
   "scripts": {

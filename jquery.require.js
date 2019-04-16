@@ -22,22 +22,15 @@
 		// laden erfolgreich
 		var done = function (data, textStatus, jqXHR) {
 			if (src.exports) data += "\ntry { exports = "+src.exports+"; } catch(e) {}";
-			data += "\n//# sourceURL="+src.url;
+			data += "\n\n//# sourceURL="+src.url;
 
 			modules[src.url].module = {exports: null};
 			(function() {
 				var module = { exports: null };
 				var exports = null;
-				try {
-					var res = eval(data);
-					if (!module.exports) module.exports = exports || res;
-					modules[src.url].module = module;
-				} catch (errorThrown) {
-					modules[src.url].textStatus = 'error';
-					modules[src.url].error = errorThrown;
-					return cb(null, modules[src.url]);
-				}
-
+				var res = eval(data);
+				if (!module.exports) module.exports = exports || res;
+				modules[src.url].module = module;
 				cb(modules[src.url].module.exports, data, textStatus, jqXHR);
 			})();
 		};
